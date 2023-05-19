@@ -9,9 +9,10 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: "12.x"
-          registry-url: https://registry.npmjs.org/
+          node-version: 16.x
       - run: python3 new_version.py
+      - name: Check Node.js version
+        run: node --version
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
